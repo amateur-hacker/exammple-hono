@@ -1,14 +1,16 @@
-import { Hono } from "hono";
 import { handle } from "@hono/node-server/vercel";
-
-const app = new Hono();
-
-app.get("/", (c) => {
-	return c.text("Hello, Vercel!");
-});
-
-app.get("/hello/:name", (c) => {
-	return c.text(`Hello, ${c.req.param("name")}!`);
-});
+import { Hono } from "hono";
+import { app } from "../app.js";
 
 export default handle(app);
+
+// import { handle } from "@hono/node-server/vercel";
+// import { Hono } from "hono";
+// import { app as AppRoute } from "../app.js";
+//
+// const app = new Hono();
+//
+// app.route("/", AppRoute);
+//
+// export default handle(app);
+//
